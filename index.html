@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <input type="text" id="search-input" placeholder="Search for a movie...">
+    <button id="search-button">Search</button>
+  </header>
+  <main>
+    <section id="popular-movies">
+      <h2>Popular Movies</h2>
+      <div id="movies-grid"></div>
+    </section>
+    <section id="pagination">
+      <button id="prev-page" disabled>Previous</button>
+      <span id="current-page">Page 1</span>
+      <button id="next-page">Next</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
