@@ -28,7 +28,8 @@ TMDb API: A public API that provides access to movie data, including details, im
 
 API Endpoints
 Popular Movies: https://api.themoviedb.org/3/movie/popular?api_key={api}
-Movie Search: https://api.themoviedb.org/3/search/movie
+
+Movie Search: https://api.themoviedb.org/3/search/movi
 Movie Details: https://api.themoviedb.org/3/movie/{movie_id}
 Movie Cast and Crew: https://api.themoviedb.org/3/movie/{movie_id}/credits
 Movie Recommendations: https://api.themoviedb.org/3/movie/{movie_id}/recommendations
