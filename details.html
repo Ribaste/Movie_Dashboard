@@ -8,21 +8,30 @@
 </head>
 <body>
   <header>
-    <button id="back-button">Home</button>
+    <h1>Movie Details</h1>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
+
   <main>
     <section id="movie-details">
-      <div id="backdrop-container">
-        <h2 id="movie-title"></h2>
-        <p id="movie-genres"></p>
+      <!-- Movie details will be inserted here -->
+    </section>
+
+    <section id="cast-section">
+      <h2>Cast</h2>
+      <div class="cast-container">
+        <!-- Cast information will be inserted here -->
       </div>
-      <p id="movie-overview"></p>
-      <h3>Cast</h3>
-      <ul id="movie-cast"></ul>
-      <h3>Genre-Based Recommendations</h3>
-      <div id="recommendations-grid"></div>
+    </section>
+
+    <section id="recommendations-section">
+      <h2>Recommendations</h2>
+      <div class="recommendations-container">
+        <!-- Recommendations will be inserted here -->
+      </div>
     </section>
   </main>
+
   <script src="details.js"></script>
 </body>
 </html>

@@ -3,25 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Explorer</title>
+  <title>MovieDB</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <input type="text" id="search-input" placeholder="Search for a movie...">
-    <button id="search-button">Search</button>
+    <h1>MovieDB</h1>
+    <button id="theme-toggle">Switch to Light Mode</button>
+    <input type="text" id="search-input" placeholder="Search for movies...">
   </header>
   <main>
-    <section id="popular-movies">
-      <h2>Popular Movies</h2>
-      <div id="movies-grid"></div>
+    <section>
+      <h2>Popular Movies <button class="view-more" onclick="window.location.href='category.html?category=popular'">View More</button></h2>
+      <div id="popular-grid" class="movie-grid"></div>
     </section>
-    <section id="pagination">
-      <button id="prev-page" disabled>Previous</button>
-      <span id="current-page">Page 1</span>
-      <button id="next-page">Next</button>
+    <section>
+      <h2>Animation Movies <button class="view-more" onclick="window.location.href='category.html?category=animation'">View More</button></h2>
+      <div id="animation-grid" class="movie-grid"></div>
+    </section>
+    <section>
+      <h2>Top Rated Movies <button class="view-more" onclick="window.location.href='category.html?category=top_rated'">View More</button></h2>
+      <div id="top-rated-grid" class="movie-grid"></div>
+    </section>
+    <section>
+      <h2>Upcoming Movies <button class="view-more" onclick="window.location.href='category.html?category=upcoming'">View More</button></h2>
+      <div id="upcoming-grid" class="movie-grid"></div>
     </section>
   </main>
-  <script src="script.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
