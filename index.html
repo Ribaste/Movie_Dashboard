@@ -8,13 +8,17 @@
 </head>
 <body>
   <header>
-    <h1>MovieDB</h1>
-    <button id="theme-toggle">Switch to Light Mode</button>
-    <input type="text" id="search-input" placeholder="Search for movies...">
+    <h1>Movie Dashboard</h1>
+    <div class="switch">
+      <label>
+        <span>Dark Mode</span>
+        <input type="checkbox" id="darkModeToggle">
+      </label>
+    </div>
   </header>
   <main>
     <section>
-      <h2>Popular Movies <button class="view-more" onclick="window.location.href='category.html?category=popular'">View More</button></h2>
+      <h2>Popular Movies <button class="view-more" onclick="window.location.href='category.html?category=popular'">View more <strong>></strong></strong></button></h2>
       <div id="popular-grid" class="movie-grid"></div>
     </section>
     <section>

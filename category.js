@@ -7,6 +7,8 @@ const themeToggleButton = document.getElementById('theme-toggle');
 
 const category = new URLSearchParams(window.location.search).get('category');
 
+const categoryTitle = document.getElementById("category");
+categoryTitle.innerHTML = (category[0].toUpperCase() + category.substring(1)). replace(/_/g, " ");
 // Fetch movies for category
 const fetchCategoryMovies = async (category, page) => {
   let url = `${BASE_URL}/movie/${category}?api_key=${API_KEY}&page=${page}`;
@@ -58,20 +60,22 @@ const loadCategoryMovies = async (page = 1) => {
   createPagination(totalPages, page);
 };
 
-// Theme toggle functionality
-themeToggleButton.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-  const mode = document.body.classList.contains('light-mode') ? 'light' : 'dark';
-  localStorage.setItem('theme', mode);
-  themeToggleButton.textContent = mode === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode';
-});
-
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
-    themeToggleButton.textContent = 'Switch to Dark Mode';
-  }
   loadCategoryMovies();
 });
+
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.checked = true;
+  }
+  
+  darkModeToggle.addEventListener('change', () => {
+    if (darkModeToggle.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'enabled'); // Save the preference
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'disabled'); // Save the preference
+    }
+  });

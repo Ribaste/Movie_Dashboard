@@ -60,3 +60,18 @@ async function fetchMovieDetails() {
 
 // Call the function to fetch and display movie details when the page loads
 fetchMovieDetails();
+
+if (localStorage.getItem('darkMode') === 'enabled') {
+  document.body.classList.add('dark-mode');
+  darkModeToggle.checked = true;
+}
+
+darkModeToggle.addEventListener('change', () => {
+  if (darkModeToggle.checked) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'enabled'); // Save the preference
+  } else {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'disabled'); // Save the preference
+  }
+});

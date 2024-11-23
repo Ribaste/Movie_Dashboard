@@ -8,10 +8,6 @@ const animationGrid = document.getElementById('animation-grid');
 const topRatedGrid = document.getElementById('top-rated-grid');
 const upcomingGrid = document.getElementById('upcoming-grid');
 
-// Function to toggle between light and dark modes
-document.getElementById('theme-toggle').addEventListener('click', function () {
-  document.body.classList.toggle('light-mode');
-});
 
 // Function to fetch movies for a category and display them in a horizontal scroll (index page)
 async function fetchMovies(url, containerId) {
@@ -133,7 +129,26 @@ fetchMovies(`${BASE_URL}/movie/popular?api_key=${API_KEY}`, 'popular-grid');
 fetchMovies(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=16`, 'animation-grid');
 
 // Fetch and display top-rated movies (category page)
-fetchCategoryMovies(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`, 'top-rated-grid');
+fetchMovies(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`, 'top-rated-grid');
 
 // Fetch and display upcoming movies (category page)
-fetchCategoryMovies(`${BASE_URL}/movie/upcoming?api_key=${API_KEY}`, 'upcoming-grid');
+fetchMovies(`${BASE_URL}/movie/upcoming?api_key=${API_KEY}`, 'upcoming-grid');
+
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById('darkModeToggle');
+
+// Check if the user has a previously saved preference
+if (localStorage.getItem('darkMode') === 'enabled') {
+  document.body.classList.add('dark-mode');
+  darkModeToggle.checked = true;
+}
+
+darkModeToggle.addEventListener('change', () => {
+  if (darkModeToggle.checked) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'enabled'); // Save the preference
+  } else {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'disabled'); // Save the preference
+  }
+});
