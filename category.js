@@ -72,3 +72,17 @@ darkModeToggle.addEventListener('change', () => {
     localStorage.setItem('darkMode', 'disabled');
   }
 });
+
+document.getElementById('search-button').addEventListener('click', handleSearch);
+document.getElementById('search-input').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    handleSearch();
+  }
+});
+
+function handleSearch() {
+  const query = document.getElementById('search-input').value.trim();
+  if (query) {
+    window.location.href = `category.html?category=search&query=${encodeURIComponent(query)}`;
+  }
+}

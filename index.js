@@ -5,51 +5,7 @@ const popularGrid = document.getElementById('popular-grid');
 const animationGrid = document.getElementById('animation-grid');
 const topRatedGrid = document.getElementById('top-rated-grid');
 const upcomingGrid = document.getElementById('upcoming-grid');
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
 
-function redirectToSearchResults(query) {
-  window.location.href = `category.html?category=search&query=${encodeURIComponent(query)}`;
-}
-
-searchButton.addEventListener('click', () => {
-  const query = searchInput.value.trim();
-  if (query) redirectToSearchResults(query);
-});
-
-searchInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    const query = searchInput.value.trim();
-    if (query) redirectToSearchResults(query);
-  }
-});
-
-
-function displayResults(movies) {
-  searchResults.innerHTML = '';
-  movies.forEach(movie => {
-    const movieCard = document.createElement('div');
-    movieCard.classList.add('movie-card');
-    movieCard.innerHTML = `
-      <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-      <h3>${movie.title}</h3>
-      <p>Release Date: ${new Date(movie.release_date).toLocaleDateString()}</p>
-    `;
-    searchResults.appendChild(movieCard);
-  });
-}
-
-searchButton.addEventListener('click', () => {
-  const query = searchInput.value.trim();
-  if (query) searchMovies(query);
-});
-
-searchInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    const query = searchInput.value.trim();
-    if (query) searchMovies(query);
-  }
-});
 
 async function fetchMovies(url, containerId) {
   try {
@@ -101,3 +57,17 @@ darkModeToggle.addEventListener('change', () => {
     localStorage.setItem('darkMode', 'disabled');
   }
 });
+
+document.getElementById('search-button').addEventListener('click', handleSearch);
+document.getElementById('search-input').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    handleSearch();
+  }
+});
+
+function handleSearch() {
+  const query = document.getElementById('search-input').value.trim();
+  if (query) {
+    window.location.href = `category.html?category=search&query=${encodeURIComponent(query)}`;
+  }
+}
