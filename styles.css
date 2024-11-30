@@ -326,6 +326,17 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 .search-container button:hover {
     background: #ccc;
 }
+
+@media screen and (max-width: 600px) {
+    .search-container {
+        flex-direction: row; 
+        gap: 5px; 
+    }
+
+    .search-container input[type="text"], .search-container button {
+        width: auto;
+    }
+}
     
 .load-more-button {
     display: inline-block;
