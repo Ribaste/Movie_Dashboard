@@ -326,12 +326,11 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 
 @media screen and (max-width: 600px) {
     .search-container {
-        gap: 5px; 
+        flex-direction: row; 
     }
 
     .search-container input[type="text"], .search-container button {
-        flex-grow: 1;
-        max-width: none;
+        flex: 1;
     }
 
     .search-container button{
