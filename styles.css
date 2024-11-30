@@ -291,12 +291,21 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     transform: translateX(20px);
 }
 
+.search-container{
+    display: flex;
+    align-items: centre;
+    justify-content: centre;
+    gap: 8px;
+}
+
 .search-container input[type=text] {
+    flex: 1;
     padding: 6px;
     border: none;
     font-size: 17px;
     background: #ddd;
     color: #000;
+    min-width: 250px;
 }
 
 .search-container button {
@@ -306,11 +315,30 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    flex-shrink: 0px;
 }
 
 .search-container button:hover {
     background: #ccc;
 }
+
+@media screen and (max-width: 600px) {
+    .search-container{
+        gap: 5px;
+    }
+    
+    .search-container input[type"text=] {
+        font-size: 14px; 
+        padding: 4px;
+        max-width: 200px;
+    }
+
+    .search-container button {
+        font-size: 14px; 
+        padding: 4px 6px; 
+    }
+}
+    
 
 .load-more-button {
     display: inline-block;
