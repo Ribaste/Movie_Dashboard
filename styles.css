@@ -307,7 +307,7 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     color: #000;
     max-width: none;
     box-sizing: border-box;
-    flex-grow: 0;
+    flex: 1;
 }
 
 .search-container button {
@@ -317,7 +317,6 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     border-radius: 5px;
     cursor: pointer;
     flex-shrink: 0px;
-    width: auto;
 }
 
 .search-container button:hover {
