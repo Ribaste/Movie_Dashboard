@@ -313,7 +313,6 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 .search-container button {
     padding: 6px 10px;
     background: #ddd;
-    font-size: 17px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
