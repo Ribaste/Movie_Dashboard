@@ -307,7 +307,7 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     color: #000;
     max-width: none;
     box-sizing: border-box;
-    flex-grow: 1;
+    flex-grow: 0;
 }
 
 .search-container button {
