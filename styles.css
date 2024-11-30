@@ -296,16 +296,19 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     align-items: centre;
     justify-content: centre;
     gap: 8px;
+    width: 100%;
+    max-width: 600px;
 }
 
-.search-container input[type=text] {
-    flex: 1;
+.search-container input[type="text"] {
     padding: 6px;
     border: none;
     font-size: 17px;
     background: #ddd;
     color: #000;
-    min-width: 250px;
+    width: 100%;
+    max-width: 250px;
+    box-sizing: border-box;
 }
 
 .search-container button {
@@ -321,25 +324,7 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 .search-container button:hover {
     background: #ccc;
 }
-
-@media screen and (max-width: 600px) {
-    .search-container{
-        gap: 5px;
-    }
     
-    .search-container input[type"text=] {
-        font-size: 14px; 
-        padding: 4px;
-        max-width: 200px;
-    }
-
-    .search-container button {
-        font-size: 14px; 
-        padding: 4px 6px; 
-    }
-}
-    
-
 .load-more-button {
     display: inline-block;
     padding: 10px 20px;
