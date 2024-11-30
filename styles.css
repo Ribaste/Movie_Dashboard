@@ -294,12 +294,10 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 .search-container{
     display: flex;
     align-items: centre;
-    justify-content: centre;
     gap: 8px;
     width: 100%;
     max-width: 600px;
-    flex-wrap: nowwrap;
-    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .search-container input[type="text"] {
@@ -331,9 +329,7 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 
 @media screen and (max-width: 600px) {
     .search-container {
-        flex-direction: row; 
         gap: 5px; 
-        justify-content: space-between;
     }
 
     .search-container input[type="text"], .search-container button {
