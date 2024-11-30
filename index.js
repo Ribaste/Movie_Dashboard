@@ -6,6 +6,20 @@ const animationGrid = document.getElementById('animation-grid');
 const topRatedGrid = document.getElementById('top-rated-grid');
 const upcomingGrid = document.getElementById('upcoming-grid');
 
+const darkModeToggle = document.getElementById('darkModeToggle');
+if (localStorage.getItem('darkMode') === 'enabled') {
+  document.body.classList.add('dark-mode');
+  darkModeToggle.checked = true;
+}
+darkModeToggle.addEventListener('change', () => {
+  if (darkModeToggle.checked) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'enabled');
+  } else {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'disabled');
+  }
+});
 
 async function fetchMovies(url, containerId) {
   try {
@@ -43,20 +57,6 @@ fetchMovies(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=16`, 'ani
 fetchMovies(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`, 'top-rated-grid');
 fetchMovies(`${BASE_URL}/movie/upcoming?api_key=${API_KEY}`, 'upcoming-grid');
 
-const darkModeToggle = document.getElementById('darkModeToggle');
-if (localStorage.getItem('darkMode') === 'enabled') {
-  document.body.classList.add('dark-mode');
-  darkModeToggle.checked = true;
-}
-darkModeToggle.addEventListener('change', () => {
-  if (darkModeToggle.checked) {
-    document.body.classList.add('dark-mode');
-    localStorage.setItem('darkMode', 'enabled');
-  } else {
-    document.body.classList.remove('dark-mode');
-    localStorage.setItem('darkMode', 'disabled');
-  }
-});
 
 document.getElementById('search-button').addEventListener('click', handleSearch);
 document.getElementById('search-input').addEventListener('keypress', function (e) {

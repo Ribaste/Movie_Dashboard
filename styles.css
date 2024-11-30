@@ -1,4 +1,3 @@
-/* Base Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
@@ -8,13 +7,11 @@ body {
     box-sizing: border-box;
 }
 
-
 .light-mode {
     background-color: #ffffff;
     color: #000;
 }
 
-/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -23,8 +20,9 @@ header {
 }
 
 header h1 {
-    margin: 0;
+    margin: 0 20px 0 0 ;
     font-size: 24px;
+    cursor: pointer;
 }
 
 button.view-more {
@@ -36,7 +34,6 @@ button.view-more {
     cursor: pointer;
 }
 
-
 input[type="text"] {
     padding: 8px;
     margin-left: 10px;
@@ -46,12 +43,10 @@ input[type="text"] {
     color: white;
 }
 
-/* Main Content */
 main {
     padding: 20px;
 }
 
-/* Index Page (Horizontal Scroll) */
 #popular-grid, #animation-grid, #top-rated-grid, #upcoming-grid, .cast-container, .recommendations-container {
     display: flex;
     overflow-x: scroll;
@@ -59,7 +54,6 @@ main {
     padding-bottom: 20px;
     padding-top: 10px;
 }
-
 
 .movie-card {
     padding: 10px;
@@ -86,7 +80,6 @@ main {
     font-size: 16px;
 }
 
-/* Rating and Release Date Styles */
 .movie-info {
     margin-top: 10px;
     color: #222222;
@@ -105,7 +98,6 @@ main {
     font-size: 12px;
 }
 
-/* Category Page (Grid Layout) */
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -113,30 +105,28 @@ main {
     gap: 20px;
 }
 
-/* Details Page */
 .movie img {
     width: 100%;
 }
+
 .cast-card {
     background-color: #f0f0f0;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .cast-card img {
     width: 100px;
-
+    border-radius: 4px;
 }
 
-/* Details Page - Backdrop Image */
 .movie-backdrop {
     position: relative;
     left: -20px;
     top: -20px;
     width: 100vw;
-    height: 400px; /* Adjust the height based on your preference */
+    height: 400px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -149,7 +139,7 @@ main {
 
 .movie-details-container {
     position: absolute;
-    top: 100px; /* Adjust based on your needs */
+    top: 100px;
     left: 20px;
     right: 20px;
     z-index: 1;
@@ -177,7 +167,6 @@ main {
     margin-top: 5px;
 }
 
-/* Overlay for better text visibility */
 .movie-backdrop::after {
     content: "";
     position: absolute;
@@ -186,13 +175,13 @@ main {
     right: 0;
     bottom: 0;
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
-    z-index: 0; /* Ensures that the overlay is behind the text */
+    z-index: 0;
 }
-.movie-details-container h1,
-.movie-details-container .movie-info {
+
+.movie-details-container h1, .movie-details-container .movie-info {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
-/* Light Mode (Default) */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -210,14 +199,12 @@ header {
     transition: background-color 0.3s;
 }
 
-/* Dark Mode */
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
 }
 
-body.dark-mode button,
-body.dark-mode .movie-info {
+body.dark-mode button, body.dark-mode .movie-info {
     color: #ffffff;
 }
 
@@ -226,12 +213,10 @@ body.dark-mode header {
     color: #ffffff;
 }
 
-body.dark-mode .movie-card h3,
-body.dark-mode .movie-card {
+body.dark-mode .movie-card h3, body.dark-mode .movie-card, body.dark-mode .cast-card {
     background-color: #222;
     color: #ffffff;
 }
-
 
 body.dark-mode input[type="text"] {
     background-color: #333333;
@@ -246,16 +231,19 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     background: #555;
 }
 
-/* Dark Mode Toggle Switch */
 .switch {
     display: flex;
     align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-left: 20px;
 }
 
 .switch label {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .switch input[type="checkbox"] {
@@ -268,7 +256,7 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     outline: none;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-left: 10px;
+    flex-shrink: 0;
 }
 
 .switch input[type="checkbox"]:checked {
@@ -291,21 +279,34 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     transform: translateX(20px);
 }
 
-.search-container input[type=text] {
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-container input[type="text"] {
+    flex-grow: 1;
     padding: 6px;
     border: none;
     font-size: 17px;
     background: #ddd;
     color: #000;
+    max-width: none;
+    box-sizing: border-box;
+    flex: 1;
 }
 
 .search-container button {
     padding: 6px 10px;
     background: #ddd;
-    font-size: 17px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .search-container button:hover {
@@ -324,10 +325,48 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
     margin-top: 20px;
     transition: background-color 0.3s ease;
     align-self: center;
-  }
-  
-  .load-more-button:hover {
-    background-color: #ccc;
-  }
+}
 
-  
+.load-more-button:hover {
+    background-color: #ccc;
+}
+
+#category {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .switch label {
+        font-size: 14px;
+    }
+
+    .switch input[type="checkbox"] {
+        width: 36px;
+        height: 18px;
+    }
+
+    .switch input[type="checkbox"]::before {
+        width: 14px;
+        height: 14px;
+        top: 2px;
+    }
+
+    .switch input[type="checkbox"]:checked::before {
+        transform: translateX(18px);
+    }
+
+    .search-container {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .search-container input[type="text"] {
+        flex: 1;
+        width: calc(100% - 100px);
+    }
+
+    .search-container button {
+        flex-shrink: 0;
+        width: auto;
+    }
+}

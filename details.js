@@ -1,25 +1,20 @@
 const API_KEY = '3821cee171333fe0fee20ff09687cfe3';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-// Function to fetch movie details and display them on the page
 async function fetchMovieDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const movieId = urlParams.get('movieId');
 
   try {
-    // Fetch movie details
     const movieResponse = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
     const movie = await movieResponse.json();
 
-    // Fetch cast details
     const castResponse = await fetch(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
     const castData = await castResponse.json();
 
-    // Fetch movie recommendations
     const recommendationsResponse = await fetch(`${BASE_URL}/movie/${movieId}/recommendations?api_key=${API_KEY}`);
     const recommendationsData = await recommendationsResponse.json();
 
-    // Populate movie details
     const movieDetailsSection = document.getElementById('movie-details');
     movieDetailsSection.innerHTML = `
       <div class="movie-backdrop" style="background-image: url('https://image.tmdb.org/t/p/original/${movie.backdrop_path}');"></div>
@@ -33,7 +28,6 @@ async function fetchMovieDetails() {
         </div>
     `;
 
-    // Populate cast section
     const castContainer = document.querySelector('.cast-container');
     castContainer.innerHTML = castData.cast.slice(0, 100).map(actor => `
       <div class="cast-card">
@@ -42,7 +36,6 @@ async function fetchMovieDetails() {
       </div>
     `).join('');
 
-    // Populate recommendations section
     const recommendationsContainer = document.querySelector('.recommendations-container');
     recommendationsContainer.innerHTML = recommendationsData.results.slice(0, 100).map(movie => `
       <div class="movie-card">
@@ -58,7 +51,6 @@ async function fetchMovieDetails() {
   }
 }
 
-// Call the function to fetch and display movie details when the page loads
 fetchMovieDetails();
 
 if (localStorage.getItem('darkMode') === 'enabled') {
@@ -69,10 +61,10 @@ if (localStorage.getItem('darkMode') === 'enabled') {
 darkModeToggle.addEventListener('change', () => {
   if (darkModeToggle.checked) {
     document.body.classList.add('dark-mode');
-    localStorage.setItem('darkMode', 'enabled'); // Save the preference
+    localStorage.setItem('darkMode', 'enabled');
   } else {
     document.body.classList.remove('dark-mode');
-    localStorage.setItem('darkMode', 'disabled'); // Save the preference
+    localStorage.setItem('darkMode', 'disabled');
   }
 });
 
