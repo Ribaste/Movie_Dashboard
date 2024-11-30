@@ -196,7 +196,6 @@ header {
     padding: 20px;
     background-color: #f0f0f0;
     color: #000000;
-    transition: background-color 0.3s;
 }
 
 body.dark-mode {
