@@ -290,6 +290,7 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 }
 
 .search-group {
+    gap: 3px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -308,7 +309,7 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 
 .search-container button {
     padding: 6px 10px;
-    background: #ddd;
+    background: #ccc;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -316,14 +317,14 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 }
 
 .search-container button:hover {
-    background: #ccc;
+    background: #bbb;
 }
 
 .load-more-button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #ddd;
+    background-color: #ccc;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -334,7 +335,7 @@ body.dark-mode .search-container button, body.dark-mode .load-more-button {
 }
 
 .load-more-button:hover {
-    background-color: #ccc;
+    background-color: #ddd;
 }
 
 #category {
